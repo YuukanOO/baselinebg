@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>baselinebg: Baseline background grid generator</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="/screen.css">
+</head>
+<body>
+  <h1>Hello from baselinebg</h1>
+
+  <p>Drag &amp; drop 
+    <a href="javascript: 
+      (function() { 
+        if(document.getElementById('baselinebg_ele') === null) {
+          var overlay = document.createElement('div');
+          overlay.id = 'baselinebg_ele';
+          overlay.style.cssText = 'background-repeat: repeat;background-image: url(\'<%= domain %>/g/\');position: fixed;top: 0;left: 0;height: 100%;width: 100%;z-index: -1';
+          document.body.appendChild(overlay);
+        } 
+        else {
+          document.body.removeChild(document.getElementById('baselinebg_ele'));
+        }
+      })();">Baseline bookmarlet</a> 
+    to your bookmark to easily show/hide your grid on any webpage!</p>
+</body>
+</html>

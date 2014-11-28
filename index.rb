@@ -1,7 +1,19 @@
 require 'sinatra'
 require 'chunky_png'
 
+# Defines sinatra options
+set :bind, '0.0.0.0'
+set :port, 5555
+
+# Show the landing page
 get '/' do
+  # Render the index page and computes the domain for the bookmarlet
+  erb :index, :locals => { 
+    :domain => "#{request.scheme}://#{request.host}:#{request.port}" }
+end
+
+# Generates a baseline
+get '/g/' do
   content_type 'image/png' # Defines the content type
 
   h = (params[:h] ||= 0).to_i # Defines horizontal baseline
