@@ -1,15 +1,28 @@
 require 'sinatra'
 require 'chunky_png'
 
+########################################
+### USER SPECIFIC CONFIGURATION
+########################################
+
+bind_address = 'localhost' # Where to listen?
+bind_port = 5555 # What port?
+# Edit the base url if you're behind a reverse proxy
+base_url = "http://#{bind_address}:#{bind_port}"
+
+########################################
+### END USER SPECIFIC CONFIGURATION
+########################################
+
 # Defines sinatra options
-set :bind, '0.0.0.0'
-set :port, 5555
+set :bind, bind_address
+set :port, bind_port
 
 # Show the landing page
 get '/' do
   # Render the index page and computes the domain for the bookmarlet
   erb :index, :locals => { 
-    :domain => "#{request.scheme}://#{request.host}:#{request.port}" }
+    :domain => base_url }
 end
 
 # Generates a baseline
