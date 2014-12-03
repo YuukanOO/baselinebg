@@ -4,23 +4,40 @@
   <title>baselinebg: Baseline background grid generator</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="/screen.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">
+    var jdomain = '<%= domain %>';
+  </script>
 </head>
 <body>
-  <h1>Hello from baselinebg</h1>
 
-  <p>Drag &amp; drop 
-    <a href="javascript: 
-      (function() { 
-        if(document.getElementById('baselinebg_ele') === null) {
-          var overlay = document.createElement('div');
-          overlay.id = 'baselinebg_ele';
-          overlay.style.cssText = 'background-repeat: repeat;background-image: url(\'<%= domain %>/g/\');position: fixed;top: 0;left: 0;height: 100%;width: 100%;z-index: -1';
-          document.body.appendChild(overlay);
-        } 
-        else {
-          document.body.removeChild(document.getElementById('baselinebg_ele'));
-        }
-      })();">Baseline bookmarlet</a> 
-    to your bookmark to easily show/hide your grid on any webpage!</p>
+  <div class="baseline-content">
+
+    <div class="wrapper">
+      <h2>baselinebg</h2>
+      <h1>Creates grid background with vertical &amp; horizontal baselines for your next project!</h1>
+      <form class="configurator">
+        <p>I want a grid with a vertical baseline sets to </p>
+        <input type="text" class="small" name="v" value="24" placeholder="24" />
+        <p> with the color </p>
+        <input type="text" class="big" name="vc" value="00000055" placeholder="rrggbbaa" />
+        <p> and an horizontal baseline sets to </p>
+        <input type="text" class="small" name="h" value="24" placeholder="24" />
+        <p> with the color </p>
+        <input type="text" class="big" name="hc" value="00000055" placeholder="rrggbbaa" />
+        <p>.</p>
+      </form>
+    </div>
+  </div>
+
+  <div class="wrapper bookmarklet">
+
+    <p class="subtle generated-url"></p>
+    <p>or</p>
+    <p class="subtle">Drag &amp; drop the <a class="bookmarklet">baselinebg</a> bookmarklet to use it on any webpage!</p>
+
+  </div>
+
+  <script type="text/javascript" src="/baselinebg.js"></script>
 </body>
 </html>

@@ -30,28 +30,31 @@ get '/g/' do
   content_type 'image/png' # Defines the content type
 
   h = (params[:h] ||= 0).to_i # Defines horizontal baseline
-  v = (params[:v] ||= 24).to_i # Defines vertical baseline
-  r = (params[:r] ||= 0).to_i # Define R color
-  g = (params[:g] ||= 0).to_i # Define G color
-  b = (params[:b] ||= 0).to_i # Define B color
-  a = (params[:a] ||= 255).to_i # Define alpha color
+  v = (params[:v] ||= 0).to_i # Defines vertical baseline
+  hc = '#' + (params[:hc] ||= '000000ff') # Defines horizontal baseline color
+  vc = '#' + (params[:vc] ||= '000000ff') # Defines vertical baseline color
 
   # If no horizontal baseline specified, just sets the width to one
-  w = h == 0 ? 1 : h
+  width = h == 0 ? 1 : h
+  # Same for height
+  height = v == 0 ? 1 : v
 
   # Creates the PNG Image
   png = ChunkyPNG::Image.new(
-    w,
-    v,
+    width,
+    height,
     ChunkyPNG::Color::TRANSPARENT)
 
-  # And the color
-  color = ChunkyPNG::Color.rgba(r, g, b, a)
+  # Create colors from params
+  horizontal_color = ChunkyPNG::Color.from_hex(hc)
+  vertical_color = ChunkyPNG::Color.from_hex(vc)
 
   # Draw horizontal line
-  png.rect(0, v - 1, w - 1, v - 1, ChunkyPNG::Color::TRANSPARENT, color)
+  png.rect(0, v - 1, width - 1, v - 1, 
+    ChunkyPNG::Color::TRANSPARENT, vertical_color) if v != 0
   # Draw vertical line if needed
-  png.rect(w - 1, 0, w - 1, v - 1, ChunkyPNG::Color::TRANSPARENT, color) if h != 0
+  png.rect(width - 1, 0, width - 1, v - 1, 
+    ChunkyPNG::Color::TRANSPARENT, horizontal_color) if h != 0
 
   # Returns blob data
   png.to_blob
