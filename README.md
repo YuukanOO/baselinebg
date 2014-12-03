@@ -1,7 +1,7 @@
 baselinebg
 ==========
 
-Simple site to serve dynamic baseline backgrounds
+Simple site to serve dynamic baseline backgrounds (live instance at http://baselinebg.voixdunet.com/).
 
 ## Installation
 

@@ -1,0 +1,6 @@
+---
+port: 5555
+log: log/thin.log
+servers: 2
+tag: baseline
+chdir: /path/to/baselinebg
