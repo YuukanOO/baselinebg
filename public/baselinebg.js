@@ -19,10 +19,10 @@
         'url("' + url + '")');
 
       // Sets generated url
-      $('.generated-url').html(url);
+      $('.generated-url').attr('href', url);
 
       // And sets bookmarklet javascript code
-      $('a.bookmarklet').attr('href', "javascript: !function(){if(null===document.getElementById(\"baselinebg_ele\")){var e=document.createElement(\"div\");e.id=\"baselinebg_ele\",e.style.cssText=\"background-repeat: repeat;background-image: url('"+url+"');position: fixed;top: 0;left: 0;height: 100%;width: 100%;z-index: 9999\",document.body.appendChild(e)}else document.body.removeChild(document.getElementById(\"baselinebg_ele\"))}();");
+      $('a.baselinebg-bookmarklet').attr('href', "javascript: !function(){if(null===document.getElementById(\"baselinebg_ele\")){var e=document.createElement(\"div\");e.id=\"baselinebg_ele\",e.style.cssText=\"background-repeat: repeat;background-image: url('"+url+"');position: fixed;top: 0;left: 0;height: 100%;width: 100%;z-index: 9999\",document.body.appendChild(e)}else document.body.removeChild(document.getElementById(\"baselinebg_ele\"))}();");
     };
 
     BaseLine.prototype.init = function() {

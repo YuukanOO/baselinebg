@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     chunky_png (1.3.3)
     daemons (1.1.9)

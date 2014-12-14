@@ -5,6 +5,7 @@
 
 html,
 body {
+  color: #422124;
   height: 100%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -14,9 +15,8 @@ body {
 }
 
 .baseline-content {
-  background-color: #FEE78C;
+  background-color: #DD5864;
   padding: 96px 0;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .wrapper {
@@ -28,25 +28,10 @@ h1 {
   display: none;
 }
 
-h2 {
-  color: #762400;
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: bold;
-  margin-bottom: 32px;
-}
-
-p,
-input {
-  font-size: 22px;
-  line-height: 32px;
-}
-
 input {
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid #DF9879;
-  color: #762400;
+  color: #fff;
   text-align: center;
   font-weight: bold;
   outline: none;
@@ -62,29 +47,35 @@ input.big {
 
 .configurator > * {
   display: inline;
+  font-size: 24px;
+  line-height: 32px;
 }
 
-.bookmarklet {
-  padding: 64px 0;
-}
-
-.bookmarklet {
-  text-align: center;
+.title {
+  font-weight: bold;
 }
 
 .subtle {
   color: #595959;
 }
 
-a.bookmarklet {
-  background-color: #FEE78C;
-  border: 1px solid #C8A417;
-  border-radius: 10px;
-  color: #762400;
-  padding: 8px;
+.bookmarklet {
+  background-color: #CF5762;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  color: #422136;
+  padding: 16px 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.bookmarklet a,
+.bookmarklet a:link,
+.bookmarklet a:visited {
+  color: #422136;
+  font-weight: bold;
   text-decoration: none;
 }
 
-a.bookmarklet:hover {
-  background-color: #FFF3C2;
+.bookmarklet a:hover {
+  text-decoration: underline;
 }
